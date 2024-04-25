@@ -1,4 +1,3 @@
-kruskal
 import java.util.*;
 class Edge implements Comparable<Edge> {
     int weight, source, destination;
@@ -48,8 +47,6 @@ public class Kruskals {
         }
         kruskals();}}
 
-
-KMP
   import java.util.Scanner;
 public class KMP {
     static void PSA(char[] pat, int M, int[] lps) {
@@ -86,8 +83,6 @@ public class KMP {
         String pattern = scanner.nextLine();
         KMP(text.toCharArray(), pattern.toCharArray());}}
 
-
-SumofSubset
   import java.util.Scanner;
 public class SubsetSum {
     static int[] arr;
@@ -123,7 +118,6 @@ public class SubsetSum {
             System.out.println("Subset does not exist.");}
         System.out.println("Count = " + count);}}
 
-RabinKarp
   import java.util.Scanner;
 
 public class RabinKarp
