@@ -1205,47 +1205,5 @@ public class CLOOK {
 }
 
 
-import java.util.*;
-
-public class Paging1 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of the process (in KB): ");
-        int size = sc.nextInt();
-        System.out.print("Enter the page size: ");
-        int pageSize = sc.nextInt();
-        System.out.print("Enter the size of physical memory (in MB): ");
-        int p = sc.nextInt();
-        double entries = Math.ceil((size * Math.pow(2, 10)) / pageSize);
-        double frames = (p * Math.pow(2, 20)) / pageSize;
-        double bitsPA = (Math.log(p) / Math.log(2)) + 20.0;
-        double bitsLA = (Math.log(size) / Math.log(2)) + 10.0;
-        double offset = Math.log(pageSize) / Math.log(2);
-        System.out.printf("Total frames: %.2f\n", frames);
-        System.out.printf("Number of entries: %.2f\n", entries);
-        System.out.printf("Number of bits in physical address: %.2f\n", bitsPA);
-        System.out.printf("Number of bits in logical address: %.2f\n", bitsLA);
-        System.out.printf("Number of bits in offset: %.2f\n", offset);
-        System.out.printf("Number of bits in page number: %.2f\n", bitsLA - offset);
-
-        int[][] pageTable = {{0, -1, 0}, {1, 4, 1}, {2, 6, 1}, {3, 10, 1}};
-        System.out.print("\nEnter the logical address: ");
-        String la = sc.next();
-        la = la.substring(0, (int) bitsLA - (int) offset);
-        int a = Integer.valueOf(la, 2);
-        boolean hit = false;
-        for (int i = 0; i < pageTable.length; i++) {
-            if (pageTable[i][2] == 1 && pageTable[i][0] == a) {
-                System.out.println("Page hit");
-                hit = true;
-                break;
-            }
-        }
-
-        if (!hit) {
-            System.out.println("Page fault");
-        }
-    }
-}
 
 
